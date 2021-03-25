@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+<name>WhatsApp Contact Button (Chat)</name>
+<code>WhatsApp-Contact-Button-(Chat)</code>
+<version>1.0</version>
+<author>opencartarabic.com</author>
+<link>https://www.opencartarabic.com/</link>  
+<file path="catalog/view/theme/*/template/common/header.tpl">
+<operation error="skip">
+<search><![CDATA[
+</head>
+]]></search>
+<add position="before"><![CDATA[
+<style type="text/css">
+.inova{margin-top:-15px;
+position: fixed;  bottom: -2px; left: 5px;
+}
+.inova a{-webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;}
+.inova a.whatsapp:hover{background:#39599f;}
+.inova .fa {
+width: 23px;
+height: 21px;
+text-align: center;
+margin: 0 2px;
+display: inline-block;
+font-size: 20px;
+color: #fff;
+border-radius: 2px;
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+-ms-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+}
+.botao-wpp {
+text-decoration: none;
+color: #eee;
+display: inline-block;
+background-color: #25d366;
+font-weight: bold;
+padding: 1rem 2rem;
+border-radius: 3px;
+}
+.botao-wpp:hover {
+background-color: darken(#25d366, 5%);
+}
+.botao-wpp:focus {
+background-color: darken(#25d366, 15%);
+}
+</style>
+]]></add>
+</operation>
+</file>
+<file path="catalog/view/theme/*/template/common/footer.tpl">
+<operation>
+<search>
+<![CDATA[ </body> ]]>
+</search>
+<add position="before"><![CDATA[
+<?php if ($config_whatsappid) { ?>
+<div class="inova">
+<a class="inova whatsapp" href="https://api.whatsapp.com/send?phone=<?php echo $config_whatsappid; ?>" type="image/x-icon" />
+<button type="button" class="btn btn-success">
+<i class="fa fa-whatsapp"></i><?php echo $config_whatsapptl; ?></button></a></div>
+<?php } ?>
+]]></add>
+</operation>
+</file>
+<file path="catalog/controller/common/footer.php">
+<operation error="skip">
+<search><![CDATA[
+$data['contact'] = $this->url->link('information/contact');
+]]></search>
+<add position="after"><![CDATA[
+$data['config_whatsapptl'] = $this->config->get('config_whatsapptl');
+$data['config_whatsappid'] = $this->config->get('config_whatsappid');
+]]></add>
+</operation>
+</file>
+<file path="admin/controller/setting/setting.php">
+<operation error="skip">
+<search><![CDATA[
+$this->load->model('tool/image');
+]]></search>
+<add position="before"><![CDATA[
+if (isset($this->request->post['config_whatsapptl'])) {
+$data['config_whatsapptl'] = $this->request->post['config_whatsapptl'];
+} else {
+$data['config_whatsapptl'] = $this->config->get('config_whatsapptl');
+}
+
+if (isset($this->request->post['config_whatsappid'])) {
+$data['config_whatsappid'] = $this->request->post['config_whatsappid'];
+} else {
+$data['config_whatsappid'] = $this->config->get('config_whatsappid');
+}
+]]></add>
+</operation>
+</file>
+<file path="admin/view/template/setting/setting.tpl">
+<operation error="skip">
+<search><![CDATA[
+<li><a href="#tab-server" data-toggle="tab"><?php echo $tab_server; ?></a></li>
+]]></search>
+<add position="after"><![CDATA[
+<li><a href="#tab-inova-media" data-toggle="tab">whatsapp</a></li>
+]]></add>
+</operation>
+<operation error="skip">
+<search><![CDATA[
+<div class="tab-content">
+]]></search>
+<add position="after"><![CDATA[
+<div class="tab-pane" id="tab-inova-media">
+<div class="form-group">
+<label class="col-sm-2 control-label" for="in-whatsapp-id">whatsapp n° DDD + Numero, ex: 21000000000</label>
+<div class="col-sm-10">
+<input class="form-control" id="in-whatsapp-id" type="text" name="config_whatsappid" placeholder="whatsapp" value="<?php echo $config_whatsappid; ?>" />
+</div>
+</div>
+<div class="form-group">
+<label class="col-sm-2 control-label" for="tl-whatsapp">Whatsapp Text Title</label>
+<div class="col-sm-10">
+<input class="form-control" id="tl-whatsapp" type="text" name="config_whatsapptl" placeholder="whatsapp" value="<?php echo $config_whatsapptl; ?>" />
+</div>
+</div>			 
+</div>
+]]></add>
+</operation>	
+</file>	
+</modification>

@@ -1,0 +1,852 @@
+2019-02-13 8:21:33 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 39
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 59
+LINE: 80
+LINE: 99
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 25
+LINE: 31
+----------------------------------------------------------------
+MOD: WhatsApp Contact Button (Chat)
+FILE: catalog/view/theme/default/template/common/header.tpl
+CODE: </head>
+LINE: 77
+FILE: catalog/view/theme/pav_digitalstore/template/common/header.tpl
+CODE: </head>
+LINE: 206
+FILE: catalog/view/theme/default/template/common/footer.tpl
+CODE: </body>
+LINE: 60
+FILE: catalog/view/theme/pav_digitalstore/template/common/footer.tpl
+CODE: </body>
+LINE: 198
+FILE: catalog/controller/common/footer.php
+CODE: $data['contact'] = $this->url->link('information/contact');
+LINE: 39
+FILE: admin/controller/setting/setting.php
+CODE: $this->load->model('tool/image');
+LINE: 535
+FILE: admin/view/template/setting/setting.tpl
+CODE: <li><a href="#tab-server" data-toggle="tab"><?php echo $tab_server; ?></a></li>
+LINE: 43
+CODE: <div class="tab-content">
+LINE: 61
+----------------------------------------------------------------
+MOD: Apply During Checkout
+FILE: catalog/controller/checkout/payment_method.php
+CODE: $data['text_comments'] = $this->language->get('text_comments');
+LINE: 89
+CODE: $data['text_payment_method'] = $this->language->get('text_payment_method');
+LINE: 88
+CODE: if (isset($this->session->data['agree'])) {
+LINE: 172
+FILE: catalog/language/english/checkout/checkout.php
+CODE: $_['text_cart']
+LINE: 23
+FILE: catalog/language/english/total/coupon.php
+CODE: $_['text_coupon']
+LINE: 8
+FILE: catalog/language/english/total/voucher.php
+CODE: $_['text_voucher']
+LINE: 8
+FILE: catalog/language/english/total/reward.php
+CODE: $_['text_reward']
+LINE: 8
+FILE: catalog/controller/total/coupon.php
+CODE: $json['redirect'] = $this->url->link('checkout/cart');
+LINE: 55
+FILE: catalog/controller/total/voucher.php
+CODE: $json['redirect'] = $this->url->link('checkout/cart');
+LINE: 53
+FILE: catalog/controller/total/reward.php
+CODE: $json['redirect'] = $this->url->link('checkout/cart');
+LINE: 76
+FILE: catalog/controller/checkout/cart.php
+CODE: public function info() {
+NOT FOUND!
+FILE: catalog/view/theme/default/template/checkout/payment_method.tpl
+CODE: <?php if ($text_agree) { ?>
+LINE: 253
+----------------------------------------------------------------
+MOD: d_opencart_patch
+CODE: public function controller($route, $args = array()) {
+NOT FOUND!
+CODE: public function controller($route, $data = array()) {
+LINE: 47
+CODE: $controller = new $class($this->registry);
+LINE: 71
+CODE: $file = DIR_LANGUAGE . $this->default . '/' . $filename . '.php';
+LINE: 27
+CODE: $parts = explode('/', str_replace('../', '', (string)$route));
+LINE: 27
+FILE: admin/controller/extension/module.php
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/install');
+LINE: 41
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/uninstall');
+LINE: 74
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/module/' . $value . '.php')) {
+LINE: 151
+CODE: $data['extensions'][] = array(
+LINE: 187
+CODE: $this->load->language('module/' . $extension);
+LINE: 177
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 253
+FILE: admin/controller/extension/shipping.php
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/shipping/' . $value . '.php')) {
+LINE: 123
+CODE: $data['extensions'][] = array(
+LINE: 143
+CODE: $this->load->language('shipping/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 203
+FILE: admin/controller/extension/payment.php
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/payment/' . $value . '.php')) {
+LINE: 123
+CODE: $data['extensions'][] = array(
+LINE: 152
+CODE: $this->load->language('payment/' . $extension);
+LINE: 148
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 215
+FILE: admin/controller/extension/total.php
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/install');
+LINE: 36
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/uninstall');
+LINE: 64
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/total/' . $value . '.php')) {
+LINE: 121
+CODE: $data['extensions'][] = array(
+LINE: 142
+CODE: $this->load->language('total/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 204
+FILE: admin/controller/extension/feed.php
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/feed/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('feed/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/extension/fraud.php
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/fraud/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('fraud/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/extension/analytics.php
+CODE: $this->load->controller('analytics/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('analytics/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/analytics/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 138
+CODE: $this->load->language('analytics/' . $extension);
+LINE: 141
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 196
+FILE: admin/controller/extension/captcha.php
+CODE: $this->load->controller('captcha/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('captcha/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/captcha/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('captcha/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: catalog/controller/checkout/shipping_method.php
+CODE: $quote = $this->{'model_shipping_' . $result['code']}->getQuote($this->session->data['shipping_address']);
+LINE: 17
+CODE: $this->load->model('shipping/' . $result['code']);
+LINE: 15
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+LINE: 27
+CODE: $this->load->model('total/' . $result['code']);
+LINE: 25
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data);
+NOT FOUND!
+FILE: admin/controller/design/layout.php
+CODE: $this->load->language('module/' . $code);
+LINE: 378
+FILE: admin/controller/user/user_permission.php
+CODE: $files = glob(DIR_APPLICATION . 'controller/*/*.php');
+NOT FOUND!
+CODE: $permission = end($part) . '/' . basename($file, '.php');
+NOT FOUND!
+FILE: admin/controller/extension/installer.php
+CODE: $modification_info = $this->model_extension_modification->getModificationByCode($code);
+LINE: 457
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 16
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 16
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $file = DIR_TEMPLATE . $template;
+LINE: 123
+CODE: $output = $template->render($route . '.tpl'
+NOT FOUND!
+----------------------------------------------------------------
+MOD: Export/Import Tool (V3.20) for OpenCart 2.x
+FILE: admin/controller/common/menu.php
+CODE: $data['text_backup'] = $this->language->get('text_backup');
+LINE: 15
+CODE: $data['backup'] = $this->url->link('tool/backup', 'token=' . $this->session->data['token'],
+LINE: 123
+FILE: admin/language/english/common/menu.php
+CODE: $_['text_backup']
+LINE: 10
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a href="<?php echo $backup; ?>"><?php echo $text_backup; ?></a></li>
+LINE: 171
+FILE: admin/controller/common/column_left.php
+CODE: if ($this->user->hasPermission('access', 'tool/log')) {
+NOT FOUND!
+----------------------------------------------------------------
+MOD: Installation without FTP settings
+CODE: $data['button_continue'] =
+LINE: 26
+CODE: 'extension/installer/ftp'
+LINE: 137
+CODE: function ftp(
+LINE: 302
+CODE: if (!$this->config->get('config_ftp_status')
+LINE: 320
+FILE: admin/language/english/extension/installer.php
+CODE: $_['text_clear']
+LINE: 16
+FILE: admin/view/template/extension/installer.tpl
+CODE: <form class="form
+LINE: 39
+CODE: timer = setInterval(
+LINE: 92
+CODE: n next()
+LINE: 161
+CODE: 'path=' + data.path
+LINE: 172
+----------------------------------------------------------------
+2019-02-23 10:29:47 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 39
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 59
+LINE: 80
+LINE: 99
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 25
+LINE: 31
+----------------------------------------------------------------
+MOD: WhatsApp Contact Button (Chat)
+FILE: catalog/view/theme/default/template/common/header.tpl
+CODE: </head>
+LINE: 77
+FILE: catalog/view/theme/pav_digitalstore/template/common/header.tpl
+CODE: </head>
+LINE: 210
+FILE: catalog/view/theme/default/template/common/footer.tpl
+CODE: </body>
+LINE: 60
+FILE: catalog/view/theme/pav_digitalstore/template/common/footer.tpl
+CODE: </body>
+LINE: 198
+FILE: catalog/controller/common/footer.php
+CODE: $data['contact'] = $this->url->link('information/contact');
+LINE: 39
+FILE: admin/controller/setting/setting.php
+CODE: $this->load->model('tool/image');
+LINE: 535
+FILE: admin/view/template/setting/setting.tpl
+CODE: <li><a href="#tab-server" data-toggle="tab"><?php echo $tab_server; ?></a></li>
+LINE: 43
+CODE: <div class="tab-content">
+LINE: 61
+----------------------------------------------------------------
+MOD: Apply During Checkout
+FILE: catalog/controller/checkout/payment_method.php
+CODE: $data['text_comments'] = $this->language->get('text_comments');
+LINE: 89
+CODE: $data['text_payment_method'] = $this->language->get('text_payment_method');
+LINE: 88
+CODE: if (isset($this->session->data['agree'])) {
+LINE: 172
+FILE: catalog/language/english/checkout/checkout.php
+CODE: $_['text_cart']
+LINE: 23
+FILE: catalog/language/english/total/coupon.php
+CODE: $_['text_coupon']
+LINE: 8
+FILE: catalog/language/english/total/voucher.php
+CODE: $_['text_voucher']
+LINE: 8
+FILE: catalog/language/english/total/reward.php
+CODE: $_['text_reward']
+LINE: 8
+FILE: catalog/controller/total/coupon.php
+CODE: $json['redirect'] = $this->url->link('checkout/cart');
+LINE: 55
+FILE: catalog/controller/total/voucher.php
+CODE: $json['redirect'] = $this->url->link('checkout/cart');
+LINE: 53
+FILE: catalog/controller/total/reward.php
+CODE: $json['redirect'] = $this->url->link('checkout/cart');
+LINE: 76
+FILE: catalog/controller/checkout/cart.php
+CODE: public function info() {
+NOT FOUND!
+FILE: catalog/view/theme/default/template/checkout/payment_method.tpl
+CODE: <?php if ($text_agree) { ?>
+LINE: 253
+----------------------------------------------------------------
+MOD: d_opencart_patch
+CODE: public function controller($route, $args = array()) {
+NOT FOUND!
+CODE: public function controller($route, $data = array()) {
+LINE: 47
+CODE: $controller = new $class($this->registry);
+LINE: 71
+CODE: $file = DIR_LANGUAGE . $this->default . '/' . $filename . '.php';
+LINE: 27
+CODE: $parts = explode('/', str_replace('../', '', (string)$route));
+LINE: 27
+FILE: admin/controller/extension/module.php
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/install');
+LINE: 41
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/uninstall');
+LINE: 74
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/module/' . $value . '.php')) {
+LINE: 151
+CODE: $data['extensions'][] = array(
+LINE: 187
+CODE: $this->load->language('module/' . $extension);
+LINE: 177
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 253
+FILE: admin/controller/extension/shipping.php
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/shipping/' . $value . '.php')) {
+LINE: 123
+CODE: $data['extensions'][] = array(
+LINE: 143
+CODE: $this->load->language('shipping/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 203
+FILE: admin/controller/extension/payment.php
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/payment/' . $value . '.php')) {
+LINE: 123
+CODE: $data['extensions'][] = array(
+LINE: 152
+CODE: $this->load->language('payment/' . $extension);
+LINE: 148
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 215
+FILE: admin/controller/extension/total.php
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/install');
+LINE: 36
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/uninstall');
+LINE: 64
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/total/' . $value . '.php')) {
+LINE: 121
+CODE: $data['extensions'][] = array(
+LINE: 142
+CODE: $this->load->language('total/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 204
+FILE: admin/controller/extension/feed.php
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/feed/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('feed/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/extension/fraud.php
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/fraud/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('fraud/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/extension/analytics.php
+CODE: $this->load->controller('analytics/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('analytics/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/analytics/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 138
+CODE: $this->load->language('analytics/' . $extension);
+LINE: 141
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 196
+FILE: admin/controller/extension/captcha.php
+CODE: $this->load->controller('captcha/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('captcha/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/captcha/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('captcha/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: catalog/controller/checkout/shipping_method.php
+CODE: $quote = $this->{'model_shipping_' . $result['code']}->getQuote($this->session->data['shipping_address']);
+LINE: 17
+CODE: $this->load->model('shipping/' . $result['code']);
+LINE: 15
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+LINE: 27
+CODE: $this->load->model('total/' . $result['code']);
+LINE: 25
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data);
+NOT FOUND!
+FILE: admin/controller/design/layout.php
+CODE: $this->load->language('module/' . $code);
+LINE: 378
+FILE: admin/controller/user/user_permission.php
+CODE: $files = glob(DIR_APPLICATION . 'controller/*/*.php');
+NOT FOUND!
+CODE: $permission = end($part) . '/' . basename($file, '.php');
+NOT FOUND!
+FILE: admin/controller/extension/installer.php
+CODE: $modification_info = $this->model_extension_modification->getModificationByCode($code);
+LINE: 457
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 16
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 16
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $file = DIR_TEMPLATE . $template;
+LINE: 123
+CODE: $output = $template->render($route . '.tpl'
+NOT FOUND!
+----------------------------------------------------------------
+MOD: Export/Import Tool (V3.20) for OpenCart 2.x
+FILE: admin/controller/common/menu.php
+CODE: $data['text_backup'] = $this->language->get('text_backup');
+LINE: 15
+CODE: $data['backup'] = $this->url->link('tool/backup', 'token=' . $this->session->data['token'],
+LINE: 123
+FILE: admin/language/english/common/menu.php
+CODE: $_['text_backup']
+LINE: 10
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a href="<?php echo $backup; ?>"><?php echo $text_backup; ?></a></li>
+LINE: 171
+FILE: admin/controller/common/column_left.php
+CODE: if ($this->user->hasPermission('access', 'tool/log')) {
+NOT FOUND!
+----------------------------------------------------------------
+MOD: Installation without FTP settings
+CODE: $data['button_continue'] =
+LINE: 26
+CODE: 'extension/installer/ftp'
+LINE: 137
+CODE: function ftp(
+LINE: 302
+CODE: if (!$this->config->get('config_ftp_status')
+LINE: 320
+FILE: admin/language/english/extension/installer.php
+CODE: $_['text_clear']
+LINE: 16
+FILE: admin/view/template/extension/installer.tpl
+CODE: <form class="form
+LINE: 39
+CODE: timer = setInterval(
+LINE: 92
+CODE: n next()
+LINE: 161
+CODE: 'path=' + data.path
+LINE: 172
+----------------------------------------------------------------
+2019-02-25 11:33:56 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 39
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 59
+LINE: 80
+LINE: 99
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 25
+LINE: 31
+----------------------------------------------------------------
+MOD: WhatsApp Contact Button (Chat)
+FILE: catalog/view/theme/default/template/common/header.tpl
+CODE: </head>
+LINE: 77
+FILE: catalog/view/theme/pav_digitalstore/template/common/header.tpl
+CODE: </head>
+LINE: 210
+FILE: catalog/view/theme/default/template/common/footer.tpl
+CODE: </body>
+LINE: 60
+FILE: catalog/view/theme/pav_digitalstore/template/common/footer.tpl
+CODE: </body>
+LINE: 198
+FILE: catalog/controller/common/footer.php
+CODE: $data['contact'] = $this->url->link('information/contact');
+LINE: 39
+FILE: admin/controller/setting/setting.php
+CODE: $this->load->model('tool/image');
+LINE: 535
+FILE: admin/view/template/setting/setting.tpl
+CODE: <li><a href="#tab-server" data-toggle="tab"><?php echo $tab_server; ?></a></li>
+LINE: 43
+CODE: <div class="tab-content">
+LINE: 61
+----------------------------------------------------------------
+MOD: Apply During Checkout
+FILE: catalog/controller/checkout/payment_method.php
+CODE: $data['text_comments'] = $this->language->get('text_comments');
+LINE: 89
+CODE: $data['text_payment_method'] = $this->language->get('text_payment_method');
+LINE: 88
+CODE: if (isset($this->session->data['agree'])) {
+LINE: 172
+FILE: catalog/language/english/checkout/checkout.php
+CODE: $_['text_cart']
+LINE: 23
+FILE: catalog/language/english/total/coupon.php
+CODE: $_['text_coupon']
+LINE: 8
+FILE: catalog/language/english/total/voucher.php
+CODE: $_['text_voucher']
+LINE: 8
+FILE: catalog/language/english/total/reward.php
+CODE: $_['text_reward']
+LINE: 8
+FILE: catalog/controller/total/coupon.php
+CODE: $json['redirect'] = $this->url->link('checkout/cart');
+LINE: 55
+FILE: catalog/controller/total/voucher.php
+CODE: $json['redirect'] = $this->url->link('checkout/cart');
+LINE: 53
+FILE: catalog/controller/total/reward.php
+CODE: $json['redirect'] = $this->url->link('checkout/cart');
+LINE: 76
+FILE: catalog/controller/checkout/cart.php
+CODE: public function info() {
+NOT FOUND!
+FILE: catalog/view/theme/default/template/checkout/payment_method.tpl
+CODE: <?php if ($text_agree) { ?>
+LINE: 253
+----------------------------------------------------------------
+MOD: d_opencart_patch
+CODE: public function controller($route, $args = array()) {
+NOT FOUND!
+CODE: public function controller($route, $data = array()) {
+LINE: 47
+CODE: $controller = new $class($this->registry);
+LINE: 71
+CODE: $file = DIR_LANGUAGE . $this->default . '/' . $filename . '.php';
+LINE: 27
+CODE: $parts = explode('/', str_replace('../', '', (string)$route));
+LINE: 27
+FILE: admin/controller/extension/module.php
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/install');
+LINE: 41
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/uninstall');
+LINE: 74
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/module/' . $value . '.php')) {
+LINE: 151
+CODE: $data['extensions'][] = array(
+LINE: 187
+CODE: $this->load->language('module/' . $extension);
+LINE: 177
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 253
+FILE: admin/controller/extension/shipping.php
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/shipping/' . $value . '.php')) {
+LINE: 123
+CODE: $data['extensions'][] = array(
+LINE: 143
+CODE: $this->load->language('shipping/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 203
+FILE: admin/controller/extension/payment.php
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/payment/' . $value . '.php')) {
+LINE: 123
+CODE: $data['extensions'][] = array(
+LINE: 152
+CODE: $this->load->language('payment/' . $extension);
+LINE: 148
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 215
+FILE: admin/controller/extension/total.php
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/install');
+LINE: 36
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/uninstall');
+LINE: 64
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/total/' . $value . '.php')) {
+LINE: 121
+CODE: $data['extensions'][] = array(
+LINE: 142
+CODE: $this->load->language('total/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 204
+FILE: admin/controller/extension/feed.php
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/feed/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('feed/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/extension/fraud.php
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/fraud/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('fraud/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/extension/analytics.php
+CODE: $this->load->controller('analytics/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('analytics/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/analytics/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 138
+CODE: $this->load->language('analytics/' . $extension);
+LINE: 141
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 196
+FILE: admin/controller/extension/captcha.php
+CODE: $this->load->controller('captcha/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('captcha/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/captcha/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('captcha/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: catalog/controller/checkout/shipping_method.php
+CODE: $quote = $this->{'model_shipping_' . $result['code']}->getQuote($this->session->data['shipping_address']);
+LINE: 17
+CODE: $this->load->model('shipping/' . $result['code']);
+LINE: 15
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+LINE: 27
+CODE: $this->load->model('total/' . $result['code']);
+LINE: 25
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data);
+NOT FOUND!
+FILE: admin/controller/design/layout.php
+CODE: $this->load->language('module/' . $code);
+LINE: 378
+FILE: admin/controller/user/user_permission.php
+CODE: $files = glob(DIR_APPLICATION . 'controller/*/*.php');
+NOT FOUND!
+CODE: $permission = end($part) . '/' . basename($file, '.php');
+NOT FOUND!
+FILE: admin/controller/extension/installer.php
+CODE: $modification_info = $this->model_extension_modification->getModificationByCode($code);
+LINE: 457
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 16
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 16
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $file = DIR_TEMPLATE . $template;
+LINE: 123
+CODE: $output = $template->render($route . '.tpl'
+NOT FOUND!
+----------------------------------------------------------------
+MOD: Export/Import Tool (V3.20) for OpenCart 2.x
+FILE: admin/controller/common/menu.php
+CODE: $data['text_backup'] = $this->language->get('text_backup');
+LINE: 15
+CODE: $data['backup'] = $this->url->link('tool/backup', 'token=' . $this->session->data['token'],
+LINE: 123
+FILE: admin/language/english/common/menu.php
+CODE: $_['text_backup']
+LINE: 10
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a href="<?php echo $backup; ?>"><?php echo $text_backup; ?></a></li>
+LINE: 171
+FILE: admin/controller/common/column_left.php
+CODE: if ($this->user->hasPermission('access', 'tool/log')) {
+NOT FOUND!
+----------------------------------------------------------------
+MOD: Installation without FTP settings
+CODE: $data['button_continue'] =
+LINE: 26
+CODE: 'extension/installer/ftp'
+LINE: 137
+CODE: function ftp(
+LINE: 302
+CODE: if (!$this->config->get('config_ftp_status')
+LINE: 320
+FILE: admin/language/english/extension/installer.php
+CODE: $_['text_clear']
+LINE: 16
+FILE: admin/view/template/extension/installer.tpl
+CODE: <form class="form
+LINE: 39
+CODE: timer = setInterval(
+LINE: 92
+CODE: n next()
+LINE: 161
+CODE: 'path=' + data.path
+LINE: 172
+----------------------------------------------------------------
+MOD: Modification for login popup
+FILE: catalog/controller/account/forgotten.php
+CODE: $this->response->redirect($this->url->link('account/login', '', true));
+NOT FOUND!
+CODE: $data['breadcrumbs'] = array();
+LINE: 71
+FILE: catalog/controller/account/login.php
+CODE: $this->model_account_activity->addActivity('login', $activity_data);
+LINE: 102
+CODE: $data['breadcrumbs'] = array();
+LINE: 125
+FILE: catalog/controller/account/register.php
+CODE: $this->model_account_activity->addActivity('register', $activity_data);
+LINE: 43
+CODE: $data['breadcrumbs'] = array();
+LINE: 56
+CODE: if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
+LINE: 394
+CODE: if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+LINE: 439
+CODE: if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('register', (array)$this->config->get('config_captcha_page'))) {
+LINE: 333
+LINE: 454
+CODE: if (isset($this->request->post['agree'])) {
+LINE: 356
+CODE: return !$this->error;
+LINE: 479
+FILE: catalog/model/account/customer.php
+CODE: $this->db->query("INSERT INTO " . DB_PREFIX . "customer SET customer_group_id = '" . (int)$customer_group_id . "', store_id = '" . (int)$this->config->get('config_store_id') . "', firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "', custom_field = '" . $this->db->escape(isset($data['custom_field']['account']) ? json_encode($data['custom_field']['account']) : '') . "', salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', newsletter = '" . (isset($data['newsletter']) ? (int)$data['newsletter'] : 0) . "', ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "', status = '1', approved = '" . (int)!$customer_group_info['approval'] . "', date_added = NOW()");
+LINE: 17
+CODE: $customer_id = $this->db->getLastId();
+LINE: 31
+CODE: $this->load->language('mail/customer');
+LINE: 42
+CODE: $data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
+LINE: 56
+CODE: $data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
+LINE: 61
+CODE: </body></html>
+LINE: 535
+CODE: </body></html>
+LINE: 673
+CODE: <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
+LINE: 95
+CODE: <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
+NOT FOUND!
+CODE: <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+LINE: 98
+CODE: <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+NOT FOUND!
+----------------------------------------------------------------
