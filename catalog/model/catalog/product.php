@@ -63,6 +63,7 @@ class ModelCatalogProduct extends Model {
 				'meta_description' => $query->row['meta_description'],
 				'meta_keyword'     => $query->row['meta_keyword'],
 				'tag'              => $query->row['tag'],
+        'url'              => $this->url->link('product/product', 'product_id=' .$query->row['product_id']),
 				'model'            => $query->row['model'],
 				'sku'              => $query->row['sku'],
 				'upc'              => $query->row['upc'],
@@ -102,6 +103,43 @@ class ModelCatalogProduct extends Model {
 			return false;
 		}
 	}
+
+
+  public function getproductByFilter($filters){
+
+    $product_data = array();
+    foreach ($filters as $filter_id) {
+      $implode[] = (int)$filter_id;
+    }
+
+      $sql = "SELECT product_id FROM " . DB_PREFIX . "product_filter WHERE filter_id IN (" . implode(',', $implode) . ")";
+      $query = $this->db->query($sql);
+      //  var_dump($query);
+      foreach ($query->rows as $result) {
+  			$product_data[] = $this->getProduct($result['product_id']);
+    //  $product_data[] = $result['product_id'];
+
+  		}
+      return $product_data;
+
+
+
+
+    // $product_data = array();
+    //
+		// $query = $this->db->query($sql);
+    // //var_dump($query);
+		// foreach ($query->rows as $result) {
+		// //	$product_data = $this->getProduct($result['product_id']);
+    // $product_data = $result['product_id'];
+		// }
+    //
+    //
+    // var_dump($product_data);
+    //
+		// return $product_data;
+
+  }
 
 	public function getProducts($data = array()) {
 		$sql = "SELECT p.product_id, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, (SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special";

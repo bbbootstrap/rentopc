@@ -8,7 +8,7 @@
 @media(max-width:992px){
  .wrapper{
   width:100%;
-} 
+}
 }
 .panel-heading {
   padding: 0;
@@ -35,7 +35,7 @@
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     transform: rotate(180deg);
-} 
+}
 
 .panel-default > .panel-heading {
     color: #282b2f;
@@ -175,7 +175,7 @@ input[type="checkbox"]:focus {
 }
 
 .filters-text{
-    
+
     background: #fff;
     border: 1px solid #d5d5d5;
     margin-bottom: 15px;
@@ -207,7 +207,7 @@ input[type="checkbox"]:focus {
 <span style="float:right;"><i class="fa fa-filter" style="font-size: 12px;
     color: #2874ef;"></i></span>
 
-</div> 
+</div>
 
 <div class="text-right" style="margin-bottom:10px;">
 
@@ -216,8 +216,8 @@ input[type="checkbox"]:focus {
 </div>
 
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  
-  
+
+
 
   <?php foreach ($filter_groups as $filter_group) { ?>
   <div class="panel panel-default">
@@ -230,23 +230,23 @@ input[type="checkbox"]:focus {
     </div>
     <div id="collapse<?php echo $filter_group['filter_group_id']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $filter_group['filter_group_id']; ?>">
       <div class="panel-body">
-        
+
 
         <?php foreach ($filter_group['filter'] as $filter) { ?>
         <div class="checkbox">
           <label>
             <?php if (in_array($filter['filter_id'], $filter_category)) { ?>
 
-           
-            
-            
+
+
+
 
             <input type="checkbox" class="option-input checkbox" name="filter[]" value="<?php echo $filter['filter_id']; ?>" checked="checked" /> <span class="ml-10"><?php echo $filter['name']; ?></span>
 
 
-            
+
             <?php } else { ?>
-           
+
              <input type="checkbox" class="option-input checkbox" name="filter[]" value="<?php echo $filter['filter_id']; ?>" /> <span class="ml-10"><?php echo $filter['name']; ?></span>
             <?php } ?>
           </label>
@@ -268,7 +268,7 @@ input[type="checkbox"]:focus {
 </div>
 
 <div class="panel-footer text-right refine">
-    
+
 
     <button class="btn btn-out btn-primary btn-square" id="button-filter-bottom"><?php echo $button_filter; ?></button>
   </div>
@@ -279,19 +279,18 @@ input[type="checkbox"]:focus {
 
 
 <script>
-$(document).ready(function(){
-    
-
- $('.panel-collapse').on('show.bs.collapse', function () {
-    $(this).siblings('.panel-heading').addClass('active');
-  });
-
-  $('.panel-collapse').on('hide.bs.collapse', function () {
-    $(this).siblings('.panel-heading').removeClass('active');
-  });
-
-
-});
+// $(document).ready(function(){
+//
+//  $('.panel-collapse').on('show.bs.collapse', function () {
+//     $(this).siblings('.panel-heading').addClass('active');
+//   });
+//
+//   $('.panel-collapse').on('hide.bs.collapse', function () {
+//     $(this).siblings('.panel-heading').removeClass('active');
+//   });
+//
+//
+// });
 
 
 $('#button-filter').on('click', function() {

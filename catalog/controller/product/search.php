@@ -210,7 +210,6 @@ class ControllerProductSearch extends Controller {
 			);
 
 			$product_total = $this->model_catalog_product->getTotalProducts($filter_data);
-
 			$results = $this->model_catalog_product->getProducts($filter_data);
 
 			foreach ($results as $result) {
@@ -291,6 +290,44 @@ class ControllerProductSearch extends Controller {
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
+
+
+
+
+
+			$data['filter_groups'] = array();
+
+ 		 $filter_groups = $this->model_catalog_category->getCategoryFilters(81);
+
+ 		 if ($filter_groups) {
+ 			 foreach ($filter_groups as $filter_group) {
+ 				 $childen_data = array();
+
+ 				 foreach ($filter_group['filter'] as $filter) {
+ 					 $filter_data = array(
+ 						 'filter_category_id' => $category_id,
+ 						 'filter_filter'      => $filter['filter_id']
+ 					 );
+
+ 					 $childen_data[] = array(
+ 						 'filter_id' => $filter['filter_id'],
+ 						 'name'      => $filter['name']
+ 					 );
+ 				 }
+
+ 				 $data['filter_groups'][] = array(
+ 					 'filter_group_id' => $filter_group['filter_group_id'],
+ 					 'name'            => $filter_group['name'],
+ 					 'filter'          => $childen_data
+ 				 );
+ 			 }}
+
+
+
+
+
+
+
 
 			$data['sorts'] = array();
 
@@ -473,5 +510,68 @@ class ControllerProductSearch extends Controller {
 		} else {
 			$this->response->setOutput($this->load->view('default/template/product/search.tpl', $data));
 		}
+	}
+
+
+		public function filtered_data(){
+
+			$this->load->model('catalog/product');
+		//	echo isset($_POST["filter"]);
+      //$filter = isset($_POST["filter"]);
+			$filter = isset($_POST["filter"]) ? $_POST['filter'] : [];
+			//$filter = [27,28,29];
+			$data = $this->model_catalog_product->getproductByFilter($filter);
+
+			echo json_encode($data);
+			// $product_total = count($data);
+			// $limit = 20;
+
+			// $pagination = new Pagination();
+			// $pagination->total = $product_total;
+			// $pagination->page = $page;
+			// $pagination->limit = $limit;
+			// $pagination->url = $this->url->link('product/search', $url . '&page={page}');
+
+			// $data['pagination'] = $pagination->render();
+			//$results = sprintf($this->language->get('text_pagination'), ($product_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($product_total - $limit)) ? $product_total : ((($page - 1) * $limit) + $limit), $product_total, ceil($product_total / $limit));
+    //  var_dump($results);
+
+			// $data = array();
+
+			// foreach ($filter as $filters) {
+			// 	 $data = $this->model_catalog_product->getproductByFilter($filters);
+			// }
+
+			//
+			// $filter =  isset($_POST["filter"]);
+			// $search =  isset($_POST["search"]);
+			//
+			//
+			//
+			// if (isset($this->request->get['page'])) {
+			// 	$page = $this->request->get['page'];
+			// } else {
+			// 	$page = 1;
+			// }
+			//
+			// if (isset($this->request->get['limit'])) {
+			// 	$limit = (int)$this->request->get['limit'];
+			// } else {
+			// 	$limit = $this->config->get('config_product_limit');
+			// }
+			//
+			// $filter_data = array(
+			// 	'filter_category_id' => 0,
+			// 	'filter_filter'      => $filter,
+			// 	'start'              => ($page - 1) * $limit,
+			// 	'limit'              => $limit
+			// );
+			//
+			// $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+			//
+			// $results = $this->model_catalog_product->getProducts($filter_data);
+			//
+			// echo $product_total;
+
 	}
 }
