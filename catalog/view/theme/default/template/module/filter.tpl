@@ -247,7 +247,7 @@ input[type="checkbox"]:focus {
 
             <?php } else { ?>
 
-             <input type="checkbox" class="option-input checkbox" name="filter[]" value="<?php echo $filter['filter_id']; ?>" /> <span class="ml-10"><?php echo $filter['name']; ?></span>
+             <input type="checkbox" class="option-input tip checkbox" name="filter[]" value="<?php echo $filter['filter_id']; ?>" /> <span class="ml-10"><?php echo $filter['name']; ?></span>
             <?php } ?>
           </label>
         </div>

@@ -7,13 +7,10 @@ class ControllerCommonCart extends Controller {
 		$this->load->model('extension/extension');
 
 		$total_data = array();
-		$total = 0;
+		$total = 0; 
 		$taxes = $this->cart->getTaxes();
 
-
-
-
-		// Display prices on
+		// Display prices
 		if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
 			$sort_order = array();
 
