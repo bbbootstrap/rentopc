@@ -748,7 +748,7 @@ input[type="checkbox"]:focus {
                var params = new window.URLSearchParams(window.location.search);
                var search = params.get('search');
                var baseurl = window.location.origin;
-              
+
                $.ajax({
                    url:"index.php?route=product/search/filtered_data",
                    method:"POST",
@@ -773,7 +773,7 @@ input[type="checkbox"]:focus {
                             stock = '<span class="rating-review mb-2" style="color:red;font-size: 15px;">Out of Stock</span>';
 
                           }
-                          $("#search_product").append('<a href="'+item.url+'"><li class="list-group-item my-list-group-item"><div class="row"><div class="col-md-3 text-center"><img src="'+product_image+'" alt="'+item.name+'" width="250" height="200"></div><div class="col-md-9"><h4 class="mt-0 p-title" style="margin-bottom: .5rem;">'+item.name+'</h4><div class="product-rating mb-14"><span class="badge23"><i class="fa fa-star"></i> '+item.rating+' Star</span> <span class="rating-review mb-1">'+item.reviews+' Reviews </span></div><span class="product_price price-new">'+product_price+'</span><div class="product-rating" style="margin-bottom: 1px;margin-top: 1px;">'+stock+'</div><hr class="mb-2 mt-1 seperator"><div class="d-flex align-items-center justify-content-between mt-1"><ul class="list-inline small" style="display: inline-grid;"><li><img src="img.icons8.com/material-outlined/10/000000/filled-circle--v1.png"</li></ul><ul class="list-inline small" style="    display: inline-grid;"><li><img src="img.icons8.com/material-outlined/10/000000/filled-circle--v1.png">Text</li></ul></div></div></div></li></a>');
+                          $("#search_product").append('<a href="'+item.url+'"><li class="list-group-item my-list-group-item"><div class="row"><div class="col-md-3 text-center"><img src="'+product_image+'" alt="'+item.name+'" width="250" height="200"></div><div class="col-md-9"><h4 class="mt-0 p-title" style="margin-bottom: .5rem;">'+item.name+'</h4><div class="product-rating mb-14"><span class="badge23"><i class="fa fa-star"></i> '+item.rating+' Star</span> <span class="rating-review mb-1">'+item.reviews+' Reviews </span></div><span class="product_price price-new">'+product_price+'</span><div class="product-rating" style="margin-bottom: 1px;margin-top: 1px;">'+stock+'</div><hr class="mb-2 mt-1 seperator"><div class="d-flex align-items-center justify-content-between mt-1"><ul class="list-inline small" style="display: inline-grid;"><li><img src="https://img.icons8.com/material-outlined/10/000000/filled-circle--v1.png"</li></ul><ul class="list-inline small" style="    display: inline-grid;"><li><img src="https://img.icons8.com/material-outlined/10/000000/filled-circle--v1.png">Text</li></ul></div></div></div></li></a>');
 
 
                         }
