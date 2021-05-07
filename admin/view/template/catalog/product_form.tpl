@@ -99,7 +99,7 @@
                     </div>
                   </div>
 
-                  
+
                 </div>
                 <?php } ?>
               </div>
@@ -483,22 +483,16 @@
                     <?php $faq_row = 0; ?>
                     <?php foreach ($product_faqs as $product_attribute) { ?>
                     <tr id="faq-row<?php echo $faq_row; ?>">
-                      <td class="text-left" style="width: 40%;"><input type="text" value="<?php echo $product_attribute['faq_question']; ?>" placeholder="Add Question" class="form-control" />
+                      <td class="text-left" style="width: 40%;"><input type="text" name="product_faqs[<?php echo $faq_row; ?>][faq_question]" value="<?php echo $product_attribute['faq_question']; ?>" placeholder="Add Question" class="form-control" />
                         <input type="hidden" value="<?php echo $product_attribute['faq_id']; ?>" /></td>
                       <td class="text-left">
-                        <div class="input-group" style="width: 100%;"> <textarea rows="5" placeholder="<?php echo $entry_text; ?>" class="form-control"><?php echo $product_attribute['faq_answer']; ?></textarea>
+                        <div class="input-group" style="width: 100%;"> <textarea rows="5" name="product_faqs[<?php echo $faq_row; ?>][faq_answer]" placeholder="<?php echo $entry_text; ?>" class="form-control"><?php echo $product_attribute['faq_answer']; ?></textarea>
                         </div>
                         </td>
                       <td class="text-left"><button type="button" onclick="deletefaq(<?php echo $faq_row; ?>,<?php echo $product_attribute['faq_id']; ?>);"  data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
                     </tr>
                     <?php $faq_row++; ?>
                     <?php } ?>
-
-
-
-
-
-
 
                     <!-- <tr id="faqs-row">
                       <td class="text-left" style="width: 40%;"><input type="text" value="" placeholder="add question" class="form-control" />

@@ -1468,7 +1468,7 @@ class ControllerCatalogProduct extends Controller {
 					'model'      => $result['model'],
 					'option'     => $option_data,
 					'price'      => $result['price']
-				);
+			    );
 			}
 		}
 

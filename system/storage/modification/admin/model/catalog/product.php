@@ -174,6 +174,7 @@ class ModelCatalogProduct extends Model {
 
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "product SET image = '" . $this->db->escape($data['image']) . "' WHERE product_id = '" . (int)$product_id . "'");
+
 		}
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_description WHERE product_id = '" . (int)$product_id . "'");
@@ -202,11 +203,25 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 
+		//$this->db->query("DELETE FROM " . DB_PREFIX . "product_faqs WHERE product_id = '" . (int)$product_id . "'");
+	//	$this->db->query("INSERT INTO " . DB_PREFIX . "product_faqs SET product_id = '" . (int)$product_id . "', faq_question = '" .$product_faqs['faq_question'] . "', faq_answer = '" .  $this->db->escape($product_faqs['faq_answer']) . "'");
 
 		if (!empty($data['product_faqs'])) {
 			foreach ($data['product_faqs'] as $product_faqs) {
 
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_faqs SET product_id = '" . (int)$product_id . "', faq_question = '" .$product_faqs['faq_question'] . "', faq_answer = '" .  $this->db->escape($product_faqs['faq_answer']) . "'");
+			//	$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_faqs WHERE product_id = '" . (int)$product_id . "'");
+				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_faqs WHERE product_id = '" . (int)$product_id . "' AND id = '" . (int)$product_faqs['faq_id'] . "'");
+
+			 if( $query->num_rows){
+
+					 $this->db->query("UPDATE " . DB_PREFIX . "product_faqs SET faq_question = '" .$product_faqs['faq_question'] . "', faq_answer = '" .  $this->db->escape($product_faqs['faq_answer']) . "' WHERE product_id = '" . (int)$product_id . "' AND id = '" . (int)$product_faqs['faq_id'] . "'");
+
+				 } else {
+
+					 $this->db->query("INSERT INTO " . DB_PREFIX . "product_faqs SET product_id = '" . (int)$product_id . "', faq_question = '" .$product_faqs['faq_question'] . "', faq_answer = '" .  $this->db->escape($product_faqs['faq_answer']) . "'");
+
+				 }
+
 
 				//$this->db->query("INSERT INTO oc_product_faqs SET product_id = '" . (int)$product_id . "'");
 
@@ -297,6 +312,7 @@ class ModelCatalogProduct extends Model {
 			if (isset($data['product_bundled'])) {
 				foreach ($data['product_bundled'] as $bundled) {
 					$this->db->query("DELETE FROM " . DB_PREFIX . "product_bundle WHERE product_id = '" . (int)$product_id . "' AND bundled_id = '" . (int)$bundled['product_id'] . "'");
+
 					$this->db->query("INSERT INTO " . DB_PREFIX . "product_bundle SET product_id = '" . (int)$product_id . "', bundled_id = '" . (int)$bundled['product_id'] . "',qty='".(int)$bundled['qty']."'");
 
 				}
@@ -309,6 +325,7 @@ class ModelCatalogProduct extends Model {
 				  foreach ($data['product_bundled_2'] as $bundled) {
 
 						$this->db->query("DELETE FROM " . DB_PREFIX . "product_bundle_2 WHERE product_id = '" . (int)$product_id . "' AND bundled_id = '" . (int)$bundled['product_id'] . "'");
+
 						$this->db->query("INSERT INTO " . DB_PREFIX . "product_bundle_2 SET product_id = '" . (int)$product_id . "', bundled_id = '" . (int)$bundled['product_id'] . "',qty='".(int)$bundled['qty']."'");
 					}
 				 }
