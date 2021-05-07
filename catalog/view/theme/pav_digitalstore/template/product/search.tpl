@@ -748,7 +748,7 @@ input[type="checkbox"]:focus {
                var params = new window.URLSearchParams(window.location.search);
                var search = params.get('search');
                var baseurl = window.location.origin;
-                alert(baseurl);
+              
                $.ajax({
                    url:"index.php?route=product/search/filtered_data",
                    method:"POST",
