@@ -253,7 +253,7 @@ class ControllerCheckoutConfirmredeem extends Controller {
 			}
 
 			$order_data['comment'] = $this->session->data['comment'];
-			$order_data['total'] = 70;   // 70 needs to change
+			$order_data['total'] = 1;   // 70 needs to change
 
 			if (isset($this->request->cookie['tracking'])) {
 				$order_data['tracking'] = $this->request->cookie['tracking'];
