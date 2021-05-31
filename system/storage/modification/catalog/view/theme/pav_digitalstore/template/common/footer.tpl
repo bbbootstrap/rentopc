@@ -324,6 +324,9 @@ h2 {
   display: none;
 }
 
+#___ratingbadge_0{
+  left:0px !important;
+}
 
 </style>
 

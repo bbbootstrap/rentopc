@@ -13,9 +13,9 @@ class ControllerCheckoutSuccess extends Controller {
 		$products = $this->cart->getProducts();
 
 		foreach ($products as $product) {
-			
+
 			$this->customer->addRewardPoints ($this->customer->getId(), $product['name'], $product['rewards'], $this->session->data['order_id']);
-		    
+
 		}
 
 			$this->cart->clear();
@@ -39,6 +39,9 @@ class ControllerCheckoutSuccess extends Controller {
 
 				$this->model_account_activity->addActivity('order_guest', $activity_data);
 			}
+
+			$data['order_id'] = $this->session->data['order_id'];
+
 
 			unset($this->session->data['shipping_method']);
 			unset($this->session->data['shipping_methods']);
