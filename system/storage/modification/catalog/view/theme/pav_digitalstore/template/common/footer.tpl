@@ -337,7 +337,29 @@ h2 {
                 <li><a class="underLineOnHover" href="shipping-policy" data-abc="true">Shipping policy</a></li>
                 <li><a class="underLineOnHover" href="warranty-policy" data-abc="true">Warranty policy</a></li>
                 <li><a class="underLineOnHover" href="replacement-policy" data-abc="true">Replacement policy</a></li>
+                <li>
+                  <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
 
+
+
+                  <script>
+
+                    window.renderBadge = function() {
+
+                      var ratingBadgeContainer = document.createElement("div");
+
+                      document.body.appendChild(ratingBadgeContainer);
+
+                      window.gapi.load('ratingbadge', function() {
+
+                        window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 144106714});
+
+                      });
+
+                    }
+
+                  </script>
+                </li>
             </ul>
         </div>
         <div class="col-md-2">
@@ -522,29 +544,6 @@ Contact Person : Teena</span>
 
 <?php endif;?>
 
-
-
-<script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
-
-
-
-<script>
-
-  window.renderBadge = function() {
-
-    var ratingBadgeContainer = document.createElement("div");
-
-    document.body.appendChild(ratingBadgeContainer);
-
-    window.gapi.load('ratingbadge', function() {
-
-      window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 144106714});
-
-    });
-
-  }
-
-</script>
 
 
 
