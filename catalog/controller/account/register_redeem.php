@@ -40,7 +40,7 @@ class ControllerAccountRegisterredeem extends Controller {
 
 			$this->model_account_activity->addActivity('register', $activity_data);
 
-		  
+
 			 $verify="success";
 
 			//$this->response->redirect($this->url->link('account/success'));
@@ -81,16 +81,16 @@ class ControllerAccountRegisterredeem extends Controller {
 	}
 
 	private function validate() {
-		
+
 			//$this->session->set_flashdata('alert_msg', array('failure', 'No register', $this->language->get('error_email')));
-		 
+
 		if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['email'])) {
 			$this->error['email'] = $this->language->get('error_email');
 }
 
 		if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
 			$this->error['warning'] = $this->language->get('error_exists');
-			
+
 		}
 
 		if ($this->model_account_customer->getTotalCustomersByPhone($this->request->post['telephone'])) {
@@ -103,13 +103,13 @@ class ControllerAccountRegisterredeem extends Controller {
 			$this->error['telephone'] = $this->language->get('error_telephone');
 	}
 
-		
+
 
 		if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
 			$this->error['password'] = $this->language->get('error_password');
 		}
 
-		
+
 
 		return !$this->error;
 	}
@@ -134,15 +134,15 @@ class ControllerAccountRegisterredeem extends Controller {
        if($json['type'] =='success'){
 
        	$mar = $this->customer->verify_register_otp($mob_num);
- 
+
 	    if($mar['status']==1){
 			$this->customer->login($email,$password);
 			unset($this->session->data['guest']);
-			$verify ="success";		
+			$verify ="success";
 
 		}else {
 
-			$verify ="error";		
+			$verify ="error";
 		}
 
        } else{
@@ -200,7 +200,7 @@ class ControllerAccountRegisterredeem extends Controller {
 	}
 
 
-	
+
 
 
 
@@ -225,68 +225,68 @@ class ControllerAccountRegisterredeem extends Controller {
 		$verify ="success";
 
        } else{
-		   
+
        	$verify ="error";
        }
 
        echo $verify;
 
-      
+
 	}
-	
+
 
 	public function reset_password(){
 
 		$verify="";
-	
+
 		//$email = $_POST['email'];
 		$phone = $_POST['phone'];
-		//$phone = "hitesh.chauhan10@outlook.com";	  
-	
+		//$phone = "hitesh.chauhan10@outlook.com";
+
 		//$password = substr(sha1(uniqid(mt_rand(100000,999999), true)), 0, 10);
 		$password = substr(sha1(uniqid(mt_rand(100000,999999), true)), 0, 10);
 
-		
-		$check_mobile = $this->customer->check_registered_phone($phone); 
+
+		$check_mobile = $this->customer->check_registered_phone($phone);
 		if ($check_mobile>0) {
 
-			$check = $this->customer->edit_Password_Using_Phone($phone,$password); 
-		
+			$check = $this->customer->edit_Password_Using_Phone($phone,$password);
+
 			//$verify=$check;
 
 			$api_key= $this->config->get('synicsys_working_key');
 			$sender_id= $this->config->get('synicsys_sender_id');
 			//$mob_num= $this->config->get('synicsys_admin1');
 			$api_url= $this->config->get('synicsys_website_url');
-	
+
 		   $sms = new Synicsys();
-		   $message = "Hello,We have reset your password, your password is - ".$password." Now login with your phone number";
-		   $response = $sms->send($phone,$message,$api_key,$sender_id,$api_url); 
+		   $message = "Hello,we have reset your password, your password is - ".$password." Now login with your phone number. Regards,rentopc.com";
+		   $response = $sms->send($phone,$message,$api_key,$sender_id,$api_url);
 
 		   $verify ="success";
-			
+
 		} else {
 
 			$verify ="error";
 
-			
+
 		}
-		
-		  
+
+
 		echo $verify;
-	
-	
+
+
 	   }
 
 
 	public function check_account(){
 		$verify="";
-	
+
 		$mob_num = $_POST['phone'];
 
-		
-		$check_mobile = $this->customer->check_registered_phone($mob_num); 
-		if ($check_mobile>0) { 
+
+		$check_mobile = $this->customer->check_registered_phone($mob_num);
+		if ($check_mobile>0) {
 
 
 			$api_key= $this->config->get('synicsys_working_key');
@@ -295,26 +295,26 @@ class ControllerAccountRegisterredeem extends Controller {
 			//$mob_num= $this->config->get('synicsys_admin1');
 			//$mob_num= $data['telephone'];
 			$sms = new Synicsys();
-			$response=$sms->sendotp($mob_num,$sender_id,$api_key); 
+			$response=$sms->sendotp($mob_num,$sender_id,$api_key);
 			$json = json_decode($response, true);
-				
+
 			if($json['type'] =='success'){
 
 				$verify ="success";
-		
+
 			   } else{
-				   
+
 				   $verify ="error";
 			   }
-			
+
 		} else {
 
-			$verify ="error";	
+			$verify ="error";
 		}
-		
-		  
+
+
 		echo $verify;
 
-	}   
+	}
 
 }
