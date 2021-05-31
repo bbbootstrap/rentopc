@@ -41,6 +41,7 @@ class ControllerCheckoutSuccess extends Controller {
 			}
 
 			$data['order_id'] = $this->session->data['order_id'];
+			$data['customer_email'] = $$this->customer->getEmail();
 
 
 			unset($this->session->data['shipping_method']);
