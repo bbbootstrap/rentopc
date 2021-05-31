@@ -524,7 +524,27 @@ Contact Person : Teena</span>
 
 
 
+<script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
 
+
+
+<script>
+
+  window.renderBadge = function() {
+
+    var ratingBadgeContainer = document.createElement("div");
+
+    document.body.appendChild(ratingBadgeContainer);
+
+    window.gapi.load('ratingbadge', function() {
+
+      window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 144106714});
+
+    });
+
+  }
+
+</script>
 
 
 
