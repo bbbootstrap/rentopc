@@ -320,6 +320,10 @@ h2 {
     height: 3000px
 }
 
+#adsbox{
+  display: none;
+}
+
 
 </style>
 
