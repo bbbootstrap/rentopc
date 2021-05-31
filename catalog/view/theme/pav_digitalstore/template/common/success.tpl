@@ -11,6 +11,7 @@
    <section id="sidebar-main" class="col-md-<?php echo $SPAN[1];?>"><div id="content"><?php echo $content_top; ?>
 
               <?php echo "Order ID - ".$order_id; ?>
+              <?php echo "customer_email - ".$customer_email; ?>
 
       <h1><?php echo $heading_title; ?></h1>
       <?php echo $text_message; ?>
