@@ -39,7 +39,7 @@ class ControllerCheckoutSuccess extends Controller {
 
 				$this->model_account_activity->addActivity('order_guest', $activity_data);
 			}
-
+			$data['order_date'] = date('Y-m-d', strtotime('+5 days'));
 			$data['order_id'] = $this->session->data['order_id'];
 			$data['customer_email'] = $this->customer->getEmail();
 
