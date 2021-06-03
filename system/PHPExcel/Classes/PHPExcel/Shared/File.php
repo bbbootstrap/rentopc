@@ -175,7 +175,6 @@ class PHPExcel_Shared_File
         // use ordinary built-in PHP function
         //    There should be no problem with the 5.2.4 Suhosin realpath() bug, because this line should only
         //        be called if we're running 5.2.1 or earlier
-        return realpath('/home/admin/web/rentopc.com/public_html/temp');
-      //  return realpath(sys_get_temp_dir());
+        return realpath(sys_get_temp_dir());
     }
 }
