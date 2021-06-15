@@ -131,8 +131,6 @@ class PHPExcel_Shared_File
     public static function sys_get_temp_dir()
     {
 
-      return realpath("/home/admin/web/rentopc.com/public_html/tmp/");
-
         if (self::$useUploadTempDirectory) {
             //  use upload-directory when defined to allow running on environments having very restricted
             //      open_basedir configs
