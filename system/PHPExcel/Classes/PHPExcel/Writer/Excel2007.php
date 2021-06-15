@@ -188,7 +188,10 @@ class PHPExcel_Writer_Excel2007 extends PHPExcel_Writer_Abstract implements PHPE
             $originalFilename = $pFilename;
             if (strtolower($pFilename) == 'php://output' || strtolower($pFilename) == 'php://stdout') {
               //  $pFilename = @tempnam(PHPExcel_Shared_File::sys_get_temp_dir(), 'phpxltmp');
-              $pFilename = @tempnam(PHPExcel_Shared_File::/home/admin/web/rentopc.com/public_html/tmp/, 'phpxltmp');
+              var_dump(sys_get_temp_dir());
+              $pFilename = @tempnam(PHPExcel_Shared_File::sys_get_temp_dir(), 'phpxltmp');
+
+
                 if ($pFilename == '') {
                     $pFilename = $originalFilename;
                 }
