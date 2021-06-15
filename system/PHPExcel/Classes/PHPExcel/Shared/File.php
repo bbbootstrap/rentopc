@@ -160,7 +160,6 @@ class PHPExcel_Shared_File
         //             return realpath($temp);
         //         }
         //     }
-        //
         //     // trick for creating a file in system's temporary dir
         //     // without knowing the path of the system's temporary dir
         //     $temp = tempnam(__FILE__, '');
@@ -168,13 +167,12 @@ class PHPExcel_Shared_File
         //         unlink($temp);
         //         return realpath(dirname($temp));
         //     }
-        //
         //     return null;
         // }
 
         // use ordinary built-in PHP function
         //    There should be no problem with the 5.2.4 Suhosin realpath() bug, because this line should only
-        //        be called if we're running 5.2.1 or earlier
+        //    be called if we're running 5.2.1 or earlier
       //  return realpath(sys_get_temp_dir());
       // For Local host
       //return realpath("C:\xampp\htdocs\rentopc_main_2/tmp/");
